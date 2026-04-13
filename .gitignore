@@ -1,0 +1,23 @@
+# Logs
+*.log
+Logs/
+
+# Reports
+Reports/
+*.html
+
+# Backups
+Backups/
+
+# PowerShell
+*.ps1.bak
+*.ps1.old
+*.tmp
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
