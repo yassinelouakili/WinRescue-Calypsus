@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿# ============================================
 # WinRescue Calypsus - HelpDesk Toolkit
 # Autor: Yassine Elouakili El Mahdati
@@ -10,15 +9,13 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 chcp 65001 > $null
 
-=======
 # ============================================
 # WinRescue Calypsus - HelpDesk Toolkit
 # Autor: Yassine Elouakili El Mahdati
-# Version: 0.2.0
+# Version: 0.3.0
 # Estado: EN DESARROLLO
 # ============================================
 
->>>>>>> 2096208ff4bedc2fe0dbe230158c880108a15749
 # Configuración Global
 $script:RutaLogs = "$PSScriptRoot\Logs"
 $script:RutaReports = "$PSScriptRoot\Reports"
@@ -80,7 +77,6 @@ function Solicitar-Permisos {
     }
 }
 
-<<<<<<< HEAD
 # Seguro de Importación de Módulos
 function Import-ModuleSafe {
     param (
@@ -112,8 +108,7 @@ function Pause {
     Read-Host
 }
 
-=======
->>>>>>> 2096208ff4bedc2fe0dbe230158c880108a15749
+
 # Banner ASCII
 function Mostrar-Banner {
     Clear-Host
@@ -122,11 +117,7 @@ function Mostrar-Banner {
 ║                                                              ║
 ║    ░▒▓█▓▒░ W·I·N·R·E·S·C·U·E  C·A·L·Y·P·S·U·S ░▒▓█▓▒░        ║
 ║                       HelpDesk Toolkit                       ║
-<<<<<<< HEAD
 ║                         v0.3.0                               ║
-=======
-║                         v0.2.0                                 ║
->>>>>>> 2096208ff4bedc2fe0dbe230158c880108a15749
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 "@ -ForegroundColor Cyan
@@ -152,7 +143,6 @@ function Mostrar-Banner {
         Write-Host " Error obteniendo información del sistema" -ForegroundColor Red
     }
 }
-<<<<<<< HEAD
 
 # Menú Principal
 function Mostrar-Menu {
@@ -162,6 +152,7 @@ function Mostrar-Menu {
         Write-Host "`n Menú Principal" -ForegroundColor White -BackgroundColor DarkBlue
         Write-Host ("-" * 40) -ForegroundColor DarkGray
         Write-Host " 1. Información del Sistema" -ForegroundColor Cyan
+		Write-Host " 2. Herramientas de Red" -ForegroundColor Cyan
         Write-Host " 0. Salir" -ForegroundColor Cyan
         Write-Host ("-" * 40) -ForegroundColor DarkGray
 
@@ -176,9 +167,17 @@ function Mostrar-Menu {
                     Pause
                 }
             }
+			'2' {
+                if (Import-ModuleSafe "$PSScriptRoot\Modules\RedTools.psm1" "RedTools") {
+                    Mostrar-RedMenu
+                } else {
+                    Write-Host "`n Módulo RedTools no encontrado" -ForegroundColor Red
+                    Pause
+                }
+            }
             '0' {
                 Escribir-Log "Programa finalizado por el usuario" "INFO"
-                Write-Host "`n ¡Gracias por usar WinRescue Suite!" -ForegroundColor Green
+                Write-Host "`n ¡Gracias por usar WinRescue Calypsus!" -ForegroundColor Green
                 Write-Host " Log guardado en: $script:LogFile" -ForegroundColor Gray
                 Write-Host "`n Saliendo..." -ForegroundColor Yellow
                 Start-Sleep -Seconds 2
@@ -207,7 +206,6 @@ Write-Host "Log actual: $script:LogFile`n" -ForegroundColor Gray
 
 # Mostrar menú principal
 Mostrar-Menu
-=======
 
 Inicializar-Directorios
 Escribir-Log "WinRescue Calypsus iniciado - Version 0.2.0" "INFO"
@@ -220,4 +218,3 @@ Write-Host "Log actual: $script:LogFile`n" -ForegroundColor Gray
 Write-Host "Presiona cualquier tecla para salir..."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 Escribir-Log "WinRescue Calypsus cerrado" "INFO"
->>>>>>> 2096208ff4bedc2fe0dbe230158c880108a15749
