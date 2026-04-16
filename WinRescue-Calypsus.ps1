@@ -1,7 +1,7 @@
 ﻿# ============================================
 # WinRescue Calypsus - HelpDesk Toolkit
 # Autor: Yassine Elouakili El Mahdati
-# Version: 0.3.0
+# Version: 0.4.0
 # Estado: EN DESARROLLO
 # ============================================
 
@@ -12,7 +12,7 @@ chcp 65001 > $null
 # ============================================
 # WinRescue Calypsus - HelpDesk Toolkit
 # Autor: Yassine Elouakili El Mahdati
-# Version: 0.3.0
+# Version: 0.4.0
 # Estado: EN DESARROLLO
 # ============================================
 
@@ -117,7 +117,7 @@ function Mostrar-Banner {
 ║                                                              ║
 ║    ░▒▓█▓▒░ W·I·N·R·E·S·C·U·E  C·A·L·Y·P·S·U·S ░▒▓█▓▒░        ║
 ║                       HelpDesk Toolkit                       ║
-║                         v0.3.0                               ║
+║                         v0.4.0                               ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 "@ -ForegroundColor Cyan
@@ -153,6 +153,7 @@ function Mostrar-Menu {
         Write-Host ("-" * 40) -ForegroundColor DarkGray
         Write-Host " 1. Información del Sistema" -ForegroundColor Cyan
 		Write-Host " 2. Herramientas de Red" -ForegroundColor Cyan
+		Write-Host " 3. Limpieza y Optimización" -ForegroundColor Cyan
         Write-Host " 0. Salir" -ForegroundColor Cyan
         Write-Host ("-" * 40) -ForegroundColor DarkGray
 
@@ -172,6 +173,14 @@ function Mostrar-Menu {
                     Mostrar-RedMenu
                 } else {
                     Write-Host "`n Módulo RedTools no encontrado" -ForegroundColor Red
+                    Pause
+                }
+            }
+			'3' {
+                if (Import-ModuleSafe "$PSScriptRoot\Modules\Cleaner.psm1" "Cleaner") {
+                    Mostrar-CleanerMenu
+                } else {
+                    Write-Host "`n Módulo Cleaner no encontrado" -ForegroundColor Red
                     Pause
                 }
             }
@@ -200,7 +209,7 @@ function Mostrar-Menu {
 # Inicialización
 Inicializar-Directorios
 Escribir-Log "=== WinRescue Calypsus Iniciado ===" "INFO"
-Escribir-Log "Versión: 0.3.0" "INFO"
+Escribir-Log "Versión: 0.4.0" "INFO"
 Escribir-Log "Usuario: $env:USERNAME" "INFO"
 Write-Host "Log actual: $script:LogFile`n" -ForegroundColor Gray
 
