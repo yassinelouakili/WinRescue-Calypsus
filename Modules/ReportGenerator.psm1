@@ -24,7 +24,7 @@ function Generate-FullReport {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WinRescue Report - $computerName</title>
+    <title>WinRescue Calypsus Report - $computerName</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -98,7 +98,7 @@ function Generate-FullReport {
 </head>
 <body>
     <div class="container">
-        <h1>WinRescue Suite - Reporte del Sistema</h1>
+        <h1>WinRescue Calypsus - Reporte del Sistema</h1>
         <div class="info-box">
             <strong>Equipo:</strong> $computerName<br>
             <strong>Usuario:</strong> $username<br>
@@ -161,8 +161,8 @@ function Generate-FullReport {
         <p>Total de servicios activos: $($services.Count)</p>
         
         <div class="footer">
-            <p>WinRescue Suite - Calypsus HelpDesk Toolkit | Generado automáticamente</p>
-            <p>Yassine Elouakili El Mahdati - v0.6.0</p>
+            <p>WinRescue Calypsus -  HelpDesk Toolkit | Generado automáticamente</p>
+            <p>Yassine Elouakili El Mahdati - v1.0</p>
         </div>
     </div>
 </body>
