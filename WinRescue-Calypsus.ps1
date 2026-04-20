@@ -109,7 +109,7 @@ function Mostrar-Banner {
 ║                                                              ║
 ║    ░▒▓█▓▒░ W·I·N·R·E·S·C·U·E  C·A·L·Y·P·S·U·S ░▒▓█▓▒░        ║
 ║                       HelpDesk Toolkit                       ║
-║                         v0.6.0                               ║
+║                          v1.0                                ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 "@ -ForegroundColor Cyan
@@ -236,7 +236,7 @@ Write-Host "Log actual: $script:LogFile`n" -ForegroundColor Gray
 Mostrar-Menu
 
 Inicializar-Directorios
-Escribir-Log "WinRescue Calypsus iniciado - Version 0.2.0" "INFO"
+Escribir-Log "WinRescue Calypsus iniciado - Version 1.0" "INFO"
 Mostrar-Banner
 
 Write-Host "`nSistema de logging operativo" -ForegroundColor Green

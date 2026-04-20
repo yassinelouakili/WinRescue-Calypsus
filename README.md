@@ -49,6 +49,7 @@ Menu Principal
 7. Salir
 ```
 
+![DEMO](imagen/demo.png)
 ## Requisitos
 
 - Windows 10/11 o Windows Server 2016+
