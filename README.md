@@ -70,6 +70,7 @@ WinRescue-Calypsus/
 ├── Logs/                      # Archivos de log
 ├── Reports/                   # Reportes generados
 ├── Backups/                   # Respaldos
+├── Imagen                     # Imagenes
 ├── LICENSE                    # MIT License
 └── README.md                  # Documentacion
 ```
