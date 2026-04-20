@@ -1,7 +1,7 @@
 ﻿# ============================================
 # WinRescue Calypsus - HelpDesk Toolkit
 # Autor: Yassine Elouakili El Mahdati
-# Version: 0.5.0
+# Version: 0.6.0
 # Estado: EN DESARROLLO
 # ============================================
 
@@ -12,7 +12,7 @@ chcp 65001 > $null
 # ============================================
 # WinRescue Calypsus - HelpDesk Toolkit
 # Autor: Yassine Elouakili El Mahdati
-# Version: 0.5.0
+# Version: 0.6.0
 # Estado: EN DESARROLLO
 # ============================================
 
@@ -117,7 +117,7 @@ function Mostrar-Banner {
 ║                                                              ║
 ║    ░▒▓█▓▒░ W·I·N·R·E·S·C·U·E  C·A·L·Y·P·S·U·S ░▒▓█▓▒░        ║
 ║                       HelpDesk Toolkit                       ║
-║                         v0.5.0                               ║
+║                         v0.6.0                               ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 "@ -ForegroundColor Cyan
@@ -155,6 +155,7 @@ function Mostrar-Menu {
 		Write-Host " 2. Herramientas de Red" -ForegroundColor Cyan
 		Write-Host " 3. Limpieza y Optimización" -ForegroundColor Cyan
 		Write-Host " 4. Reparación del Sistema" -ForegroundColor Cyan
+		Write-Host " 5. Generar Reporte Completo" -ForegroundColor Cyan
         Write-Host " 0. Salir" -ForegroundColor Cyan
         Write-Host ("-" * 40) -ForegroundColor DarkGray
 
@@ -193,6 +194,14 @@ function Mostrar-Menu {
                     Pause
                 }
             }
+			'5' {
+                if (Import-ModuleSafe "$PSScriptRoot\Modules\ReportGenerator.psm1" "ReportGenerator") {
+                    Generate-FullReport
+                } else {
+                    Write-Host "`n Módulo ReportGenerator no encontrado" -ForegroundColor Red
+                    Pause
+                }
+            }
             '0' {
                 Escribir-Log "Programa finalizado por el usuario" "INFO"
                 Write-Host "`n ¡Gracias por usar WinRescue Calypsus!" -ForegroundColor Green
@@ -218,7 +227,7 @@ function Mostrar-Menu {
 # Inicialización
 Inicializar-Directorios
 Escribir-Log "=== WinRescue Calypsus Iniciado ===" "INFO"
-Escribir-Log "Versión: 0.5.0" "INFO"
+Escribir-Log "Versión: 0.6.0" "INFO"
 Escribir-Log "Usuario: $env:USERNAME" "INFO"
 Write-Host "Log actual: $script:LogFile`n" -ForegroundColor Gray
 
