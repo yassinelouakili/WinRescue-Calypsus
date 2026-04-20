@@ -1,33 +1,84 @@
-# WinRescue Calypsus
+# WinRescue Calypsus - HelpDesk Toolkit
 
-**HelpDesk Toolkit para administración de sistemas Windows**
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Version](https://img.shields.io/badge/Version-1.0-blue)
+![Windows](https://img.shields.io/badge/Windows-10%2B-0078D6)
 
-## Roadmap
+**Herramienta profesional para diagnostico, mantenimiento y reparacion de sistemas Windows**
 
-- Sistema de información del hardware
-- Herramientas de diagnóstico de red
-- Limpieza y optimización del sistema
-- Reparación de archivos del sistema
-- Generador de reportes HTML
-- Interfaz de menú principal
+Version: 1.0 | Licencia: MIT | Autor: Yassine Elouakili El Mahdati
 
-## Objetivo
+## Caracteristicas
 
-Crear una herramienta todo-en-uno para técnicos de soporte que unifique las tareas más comunes de diagnóstico y reparación en Windows.
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Informacion del sistema | CPU, RAM, discos, GPU, servicios |
+| Herramientas de red | Ping, traceroute, escaneo de puertos, flush DNS |
+| Limpieza y optimizacion | Temporales, cache navegadores, discos |
+| Reparacion del sistema | SFC, DISM, Windows Update, permisos |
+| Reportes HTML | Diagnostico profesional en formato web |
+| Sistema de logs | Trazabilidad completa de operaciones |
 
-## Estructura planificada   
-WinRescue Calypsus/  
-│   README.md  
-│   WinRescue-Calypsus.ps1  
-│  
-├───Backups/  
-├───Logs/  
-├───Modules/  
-│   │──   Cleaner.psm1  
-│   │──   ConfigMenu.psm1  
-│   │──   RedTools.psm1  
-│   │──   RepairOS.psm1  
-│   │──   ReportGenerator.psm1  
-│   │──   SystemInfo.psm1  
-│  
-└───Reports/  
+## Instalacion
+
+```powershell
+git clone https://github.com/yassinelouakili/winrescue-calypsus.git
+cd winrescue-calypsus
+```
+
+## Uso
+
+Ejecutar PowerShell como Administrador (recomendado):
+
+```powershell
+.\WinRescue-Calypsus.ps1
+```
+
+## Demo
+
+```
+Menu Principal
+----------------------------------------
+1. Informacion del Sistema
+2. Herramientas de Red
+3. Limpieza y Optimizacion
+4. Reparacion del Sistema
+5. Generar Reporte Completo
+6. Configuracion
+7. Salir
+```
+
+## Requisitos
+
+- Windows 10/11 o Windows Server 2016+
+- PowerShell 5.1 o superior
+
+## Estructura
+
+```
+WinRescue-Calypsus/
+├── WinRescue-Calypsus.ps1              # Script principal
+├── Modules/
+│   ├── SystemInfo.psm1        # Informacion del sistema
+│   ├── RedTools.psm1          # Herramientas de red
+│   ├── Cleaner.psm1           # Limpieza y optimizacion
+│   ├── RepairOS.psm1          # Reparacion del sistema
+│   ├── ReportGenerator.psm1   # Generador de reportes
+│   └── ConfigMenu.psm1        # Configuracion
+├── Logs/                      # Archivos de log
+├── Reports/                   # Reportes generados
+├── Backups/                   # Respaldos
+├── LICENSE                    # MIT License
+└── README.md                  # Documentacion
+```
+
+## Autor
+
+**Yassine Elouakili El Mahdati**
+- LinkedIn: https://www.linkedin.com/in/yassine-elouakili-el-mahdati-033b56342
+- GitHub: https://github.com/yassinelouakili
+
+## Licencia
+
+Distribuido bajo licencia MIT. Ver archivo LICENSE para mas informacion.

@@ -1,20 +1,12 @@
 ﻿# ============================================
 # WinRescue Calypsus - HelpDesk Toolkit
 # Autor: Yassine Elouakili El Mahdati
-# Version: 0.6.0
-# Estado: EN DESARROLLO
+# Version: 1.0
 # ============================================
 
 # Configurar codificación UTF-8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 chcp 65001 > $null
-
-# ============================================
-# WinRescue Calypsus - HelpDesk Toolkit
-# Autor: Yassine Elouakili El Mahdati
-# Version: 0.6.0
-# Estado: EN DESARROLLO
-# ============================================
 
 # Configuración Global
 $script:RutaLogs = "$PSScriptRoot\Logs"
@@ -156,7 +148,8 @@ function Mostrar-Menu {
 		Write-Host " 3. Limpieza y Optimización" -ForegroundColor Cyan
 		Write-Host " 4. Reparación del Sistema" -ForegroundColor Cyan
 		Write-Host " 5. Generar Reporte Completo" -ForegroundColor Cyan
-        Write-Host " 0. Salir" -ForegroundColor Cyan
+		Write-Host " 6. Configuración" -ForegroundColor Cyan
+        Write-Host " 7. Salir" -ForegroundColor Cyan
         Write-Host ("-" * 40) -ForegroundColor DarkGray
 
         $opcion = Read-Host "`n Selecciona una opción [1-0]"
@@ -202,7 +195,15 @@ function Mostrar-Menu {
                     Pause
                 }
             }
-            '0' {
+			'6' {
+                if (Import-ModuleSafe "$PSScriptRoot\Modules\ConfigMenu.psm1" "ConfigMenu") {
+                    Show-ConfigMenu
+                } else {
+                    Write-Host "`n Módulo ConfigMenu no encontrado" -ForegroundColor Red
+                    Pause
+                }
+            }
+            '7' {
                 Escribir-Log "Programa finalizado por el usuario" "INFO"
                 Write-Host "`n ¡Gracias por usar WinRescue Calypsus!" -ForegroundColor Green
                 Write-Host " Log guardado en: $script:LogFile" -ForegroundColor Gray
@@ -216,7 +217,7 @@ function Mostrar-Menu {
             }
         }
         
-        if ($opcion -ne '0') {
+        if ($opcion -ne '7') {
             Write-Host "`n Presione cualquier tecla para continuar..."
             $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
         }
@@ -227,7 +228,7 @@ function Mostrar-Menu {
 # Inicialización
 Inicializar-Directorios
 Escribir-Log "=== WinRescue Calypsus Iniciado ===" "INFO"
-Escribir-Log "Versión: 0.6.0" "INFO"
+Escribir-Log "Versión: 1.0" "INFO"
 Escribir-Log "Usuario: $env:USERNAME" "INFO"
 Write-Host "Log actual: $script:LogFile`n" -ForegroundColor Gray
 
